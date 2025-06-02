@@ -1,0 +1,20 @@
+# Ignorar dependências
+node_modules/
+
+# Ignorar variáveis sensíveis
+.env
+
+# Ignorar logs
+*.log
+
+# Ignorar configurações do sistema
+.DS_Store
+*.swp
+
+# Ignorar arquivos do editor
+.vscode/
+.idea/
+
+# Ignorar build (caso use futuramente)
+dist/
+build/
