@@ -15,14 +15,17 @@ app.get('/', (req, res) => {
     res.send('API running!')
 })
 
-//Conectar ao MongoDB
-mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-    console.log('MongoDB conectado')
-    app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`))
-})
-.catch(err => console.error('Erro ao conectar no MongoDB:', err))
-
+// Rotas
 const todoRoutes = require('./routes/todos')
 app.use('/api/todos', todoRoutes)
 
+//Conectar ao MongoDB
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => console.log('MongoDB conectado'))
+    .catch((err) => console.error('Erro ao conectar no MongoDB:', err))
+
+// Servidor
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
