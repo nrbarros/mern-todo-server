@@ -4,7 +4,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
 //Middlewares
 app.use(cors())
@@ -20,8 +20,7 @@ const todoRoutes = require('./routes/todos')
 app.use('/api/todos', todoRoutes)
 
 //Conectar ao MongoDB
-mongoose
-    .connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB conectado'))
     .catch((err) => console.error('Erro ao conectar no MongoDB:', err))
 
